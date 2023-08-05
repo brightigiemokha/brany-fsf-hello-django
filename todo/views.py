@@ -14,7 +14,7 @@ def get_todo_list(request):
 
 def add_item(request):
     if request.method == 'POST':
-        namew = request.POST.get('item_name')
+        name = request.POST.get('item_name')
         done = 'done' in request.POST
         Item.objects.create(name=name, done=done)
 
