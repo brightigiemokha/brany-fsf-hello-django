@@ -1,11 +1,22 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.models import User
+from todo import models
 from .models import Item
 from .forms import ItemForm
+
 
 # Create your views here.
 
 
 def signup(request):
+    if request.method=='POST':
+        fnm=request.POST.get('fnm')
+        emailid=request.POST.get('email')
+        pwd=request.POST.get('pwd')
+        print(fnm,emailid,pwd)
+        new_user=User.objects.create_user(fnm,emailid,pwd)
+        new_user.save()
+        return redirect('todo/login')
     return render(request,'todo/signup.html')
 
 
