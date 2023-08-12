@@ -15,10 +15,11 @@
         href="https://fonts.googleapis.com/css2?family=Font Awesome 5 Brands:wght@400&display=swap" />
     
     <script type="text/javascript" src="{% static 'js/todo.js' %}"></script>
+    <link rel="shortcut icon" type="image/png" href="./assets/image/favicon.jpeg">
 </head>
     <body>
 
-    <div class="Signup-login">
+    <div class="container">
         <div class="signup-box">
             <form method="post">
                 {% csrf_token %}
@@ -28,7 +29,7 @@
                 <div class="line"></div>
                 <div class="field">
                     <b>Username</b>
-                    <input type="text>" class=""inp placeholder="Enter Your Username" name="fnm" required>
+                    <input type="text>" class="inp" placeholder="Enter Your Username" name="fnm" required>
                 </div>
                 <div class="field">
                     <b>Password</b>

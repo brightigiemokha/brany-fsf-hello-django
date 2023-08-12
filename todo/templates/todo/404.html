@@ -18,15 +18,15 @@
     <link rel="shortcut icon" type="image/png" href="./assets/image/favicon.jpeg">
 </head>
 <body>
-    <h1>Edit a Todo Item:</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div>
-            <p>
-                <button type="submit">Update Item</button>
-            </p>
+    <div class="container">
+        <div class="error">
+            <div class="field">
+                <b>Oops! Page Not Found.<br>
+                    <h1>404</h1>
+                        <p>we can't fine the page you are looking for.</p>
+                        <a class="anc" href="todo/login"></a>               
+            </div>
         </div>
-    </form>
+    </div>
 </body>
 </html>
