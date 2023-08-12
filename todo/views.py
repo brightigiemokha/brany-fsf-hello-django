@@ -5,6 +5,10 @@ from .forms import ItemForm
 # Create your views here.
 
 
+def signup(request):
+    return render(request,'todo/signup.html')
+
+
 def get_todo_list(request):
     items = Item.objects.all()
     context = {
