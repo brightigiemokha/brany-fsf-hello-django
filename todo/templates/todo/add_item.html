@@ -16,7 +16,7 @@
     <script type="text/javascript" src="{% static 'js/todo.js' %}"></script>
 </head>
 <body>
-    <h1>Add a Todo Item:</h1>
+    <h1>Add Today's Task:</h1>
     <form method="POST" action="add">
         {% csrf_token %}
         {{ form.as_p }}

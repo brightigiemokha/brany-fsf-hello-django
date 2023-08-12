@@ -28,7 +28,7 @@ def login(request):
         user=authenticate(request,username=fnm,password=pwd)
         if user is not None:
             login(request,user)
-            return redirect('/get_todo_list')
+            return redirect('/todo_list')
         else:
             return redirect('/login')
 

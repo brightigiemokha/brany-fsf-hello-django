@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,7 @@
 </head>
     <body>
 
-    <div class="Signup-login">
+    <div class="container">
         <div class="signup-box">
             <form method="post">
                 {% csrf_token %}
@@ -27,7 +28,7 @@
                 <div class="line"></div>
                 <div class="field">
                     <b>Username</b>
-                    <input type="text>" class=""inp placeholder="Enter Your Username" name="fnm" required>
+                    <input type="text>" class="inp" placeholder="Enter Your Username" name="fnm" required>
                 </div>
                 <div class="field">
                     <b>Email</b>
@@ -44,7 +45,7 @@
             <div class="field">
                 <b>Already Have An Account?</b>
                 <br>
-                <a class="anc"href="/login"></a>
+                <a class="anc" href="todo/login"></a>
             </div>
         </div>
     </div>
