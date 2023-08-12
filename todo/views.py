@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from todo import models
 from .models import Item
 from .forms import ItemForm
+from django.contrib.auth import authenticate,login,logout
 
 
 # Create your views here.
@@ -24,7 +25,13 @@ def login(request):
         fnm=request.POST.get('fnm')
         pwd=request.POST.get('pwd')
         print(fnm,pwd)
-        
+        user=authenticate(request,username=fnm,password=pwd)
+        if user is not None:
+            login(request,user)
+            return redirect('/get_todo_list')
+        else:
+            return redirect('/login')
+
     return render(request,'todo/login.html')
 
 def get_todo_list(request):
