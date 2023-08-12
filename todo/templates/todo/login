@@ -16,16 +16,12 @@
             <form method="post">
                 {% csrf_token %}
                 <div class="heading">
-                    Signup
+                    Login
                 </div>
                 <div class="line"></div>
                 <div class="field">
                     <b>Username</b>
                     <input type="text>" class=""inp placeholder="Enter Your Username" name="fnm" required>
-                </div>
-                <div class="field">
-                    <b>Email</b>
-                    <input type="email" class="inp" name="email" required>
                 </div>
                 <div class="field">
                     <b>Password</b>
@@ -36,9 +32,9 @@
                 </div>
             </form>
             <div class="field">
-                <b>Already Have An Account?</b>
+                <b>Don't Have an Account?</b>
                 <br>
-                <a class="anc"href="/login"></a>
+                <a class="anc"href="/signup"></a>
             </div>
         </div>
     </div>
