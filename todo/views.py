@@ -16,9 +16,16 @@ def signup(request):
         print(fnm,emailid,pwd)
         new_user=User.objects.create_user(fnm,emailid,pwd)
         new_user.save()
-        return redirect('todo/login')
+        return redirect('/login')
     return render(request,'todo/signup.html')
 
+def login(request):
+    if request.method=='POST':
+        fnm=request.POST.get('fnm')
+        pwd=request.POST.get('pwd')
+        print(fnm,pwd)
+        
+    return render(request,'todo/login.html')
 
 def get_todo_list(request):
     items = Item.objects.all()
