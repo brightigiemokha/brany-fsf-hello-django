@@ -1,4 +1,3 @@
-from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from todo import models
@@ -18,7 +17,7 @@ def signup(request):
         print(fnm,emailid,pwd)
         new_user=User.objects.create_user(fnm,emailid,pwd)
         new_user.save()
-        return redirect('/login')
+        return redirect('login/')
     return render(request,'todo/signup.html')
 
 def login(request):
@@ -28,23 +27,22 @@ def login(request):
         print(fnm,pwd)
         user=authenticate(request,username=fnm,password=pwd)
         if user is not None:
-            return redirect('todo/get_todo_list')
+            return redirect('todopage/')
         else:
-            return redirect('/login')
+            return redirect('login/')
 
     return render(request,'todo/login.html')
 
-def get_todo_list(request):
+def todo_list(request):
     if request.method=='POST':
-        ititle=request.POST.get('title')
+        title=request.POST.get('title')
         print(title)
         obj=models.TODO(title=title,user=request.user)
         obj.save()
         res=models.TODO.objects.filter(user=request.user).order_by('-date')
-        return redirect('/todo_list.html',{'res':res})
-        
+        return redirect('todopage/',{'res':res})
     res=models.TODO.objects.filter(user=request.user).order_by('-date')
-    return render(request, 'todo/todo_list.html', context)
+    return render(request, '/todo_list.html', context)
 
 
 def add_item(request):
