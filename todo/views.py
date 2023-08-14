@@ -33,17 +33,13 @@ def login(request):
 
     return render(request,'todo/login.html')
 
-def todo_list(request):
-    if request.method=='POST':
-        title=request.POST.get('title')
-        print(title)
-        obj=models.TODO(title=title,user=request.user)
-        obj.save()
-        res=models.TODO.objects.filter(user=request.user).order_by('-date')
-        return redirect('todopage',{'res':res})
-    res=models.Item.objects.filter(user=request.user).order_by('-date')
-    return render(request, 'todo_list.html',)
-
+def get_todo_list(request):
+    items = Item.objects.all()
+    context = {
+        'items': items
+    }
+    
+    return render(request, 'todo/todo_list.html', context)
 
 def add_item(request):
     if request.method == 'POST':
