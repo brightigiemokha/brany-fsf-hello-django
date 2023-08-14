@@ -27,7 +27,7 @@ def login(request):
         print(fnm,pwd)
         user=authenticate(request,username=fnm,password=pwd)
         if user is not None:
-            return redirect('todopage/')
+            return redirect('/todopage')
         else:
             return redirect('login/')
 
@@ -40,9 +40,9 @@ def todo_list(request):
         obj=models.TODO(title=title,user=request.user)
         obj.save()
         res=models.TODO.objects.filter(user=request.user).order_by('-date')
-        return redirect('todopage/',{'res':res})
-    res=models.TODO.objects.filter(user=request.user).order_by('-date')
-    return render(request, '/todo_list.html', context)
+        return redirect('todopage',{'res':res})
+    res=models.Item.objects.filter(user=request.user).order_by('-date')
+    return render(request, 'todo_list.html',)
 
 
 def add_item(request):
